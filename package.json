@@ -1,26 +1,19 @@
 {
-  "name": "react-hot-loader-minimal-boilerplate",
-  "version": "1.0.0",
+  "name": "amber",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --history-api-fallback --open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate.git"
-  },
+  "repository": "https://github.com/dudekt/amber.git",
   "keywords": [],
-  "author": "",
+  "author": "Tadeusz Dudek <tadeusz.dudek@vml.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate/issues"
   },
   "homepage": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate#readme",
-  "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
-  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
@@ -30,5 +23,9 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3"
   }
 }
