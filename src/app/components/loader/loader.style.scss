@@ -1,0 +1,10 @@
+body {
+    background-color: pink;
+}
+
+$var: 10px;
+
+.test {
+    padding: $var;
+    background-color: red;
+}
