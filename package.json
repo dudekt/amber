@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate#readme",
   "dependencies": {
+    "normalize.css": "^6.0.0",
     "react": "^15.5.3",
     "react-dom": "^15.5.3"
   },
