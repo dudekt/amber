@@ -4,22 +4,22 @@ const path = require('path')
 module.exports = {
     devtool: 'source-map',
     entry: {
-        'app': [
+        app: [
             'babel-polyfill',
             'react-hot-loader/patch',
-            './src/index'
-        ]
+            './src/index',
+        ],
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].js'
+        filename: '[name].js',
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
             },
             {
                 test: /\.s?css$/,
@@ -28,8 +28,11 @@ module.exports = {
                     'css-loader?modules&importLoaders=1',
                     'postcss-loader',
                     'sass-loader',
-                ]
-            }
+                ],
+            },
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.json', '.scss'],
     },
 }

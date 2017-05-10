@@ -4,7 +4,7 @@ import style from './loader.style.scss'
 export default class Loader extends React.Component {
     render() {
         return (
-            <div className={style['loader']} />
+            <div className={style['loader']}/>
         )
     }
 }
