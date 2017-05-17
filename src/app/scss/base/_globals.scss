@@ -1,4 +1,10 @@
 body {
-    background-color: green;
+    background-color: cadetblue;
     margin: 0;
+}
+
+%after,
+%before {
+    content: " ";
+    display: block;
 }
