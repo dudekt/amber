@@ -27,7 +27,12 @@ module.exports = {
                     'style-loader',
                     'css-loader?modules&importLoaders=1',
                     'postcss-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            includePaths: [path.resolve(__dirname, './src/app/scss')]
+                        }
+                    }
                 ],
             },
         ],
@@ -35,4 +40,4 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.scss'],
     },
-}
+};

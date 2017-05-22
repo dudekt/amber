@@ -1,0 +1,47 @@
+@import "./palette";
+
+$palettes: (
+    $palette,
+);
+
+@function applyTransformations($value, $transformations){
+
+    @if length($transformations) > 0 {
+        @if type-of(nth($transformations,1)) == string {
+            @return applyTransformation($value, $transformations)
+        }
+
+        @return reduce($transformations, applyTransformation, $value);
+    }
+
+    @return $value;
+}
+
+@mixin applyFallback($param, $result) {
+    @if (type-of($result) == map) {
+        #{$param}: map-get($result, fallback);
+        #{$param}: map-get($result, base);
+    } @else {
+        #{$param}: $result;
+    }
+}
+
+@mixin get-colors($param, $type, $elem, $transformations: ()) {
+    @each $palette in $palettes {
+        @if map-get($palette, $type) {
+            $value: map-get(map-get($palette, $type), $elem);
+            $paletteName: map-get($palette, name);
+            @if $paletteName == default {
+                @if $value {
+                    & {
+                        @include applyFallback($param, applyTransformations($value, $transformations));
+                    }
+                }
+            } @else {
+                :global(body.#{$paletteName}) & {
+                    @include applyFallback($param, applyTransformations($value, $transformations));
+                }
+            }
+        }
+    }
+}

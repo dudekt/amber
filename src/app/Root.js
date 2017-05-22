@@ -1,12 +1,14 @@
 import React from 'react'
 import './scss/main.scss'
-import Loader from './components/loader/'
+import './scss/main.scss'
+import TabsContainer from './components/tabs-container/container'
 import Loader2 from './components/loader2/'
 
 const Root = () => (
     <div>
-        <Loader/>
-        <Loader2/>
+        {/*<Loader/>*/}
+        {/*<Loader2/>*/}
+        <TabsContainer />
     </div>
 );
 

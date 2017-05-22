@@ -1,0 +1,20 @@
+$defaultColor: rgb(92, 107, 192);
+$mainBackground: rgb(223, 225, 225);
+$mainColor: red;
+
+$palette: (
+    name: default,
+    base: (
+        main: $mainColor,
+        default: $defaultColor,
+        neutral: rgb(0, 152, 255),
+        positive: rgb(51, 204, 0),
+        positive-wrs: rgb(0, 205, 152),
+        negative: rgb(255, 0, 0),
+        negative-wrs: rgb(255, 46, 99),
+        gray: rgb(100, 100, 100),
+        black: rgb(0, 0, 0),
+        white: rgb(255, 255, 255),
+    ),
+);
+
