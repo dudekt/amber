@@ -10,6 +10,28 @@ $palettes: (
     $palette,
 );
 
+@function reduce($list, $callback, $initial: 0) {
+    $result: $initial;
+    @if length($list) > 0 {
+        @for $i from 1 through length($list) {
+            $result: call($callback, $result, nth($list, $i));
+        }
+    }
+    @return $result;
+}
+
+@function applyTransformation($value, $functionWithArgument){
+    @if length($functionWithArgument) == 1 {
+        @return call(nth($functionWithArgument, 1), $value);
+    } @elseif length($functionWithArgument) == 2 {
+        @return call(nth($functionWithArgument, 1), $value, nth($functionWithArgument, 2));
+    } @elseif length($functionWithArgument) == 3 {
+        @return call(nth($functionWithArgument, 1), $value, nth($functionWithArgument, 2), nth($functionWithArgument, 3));
+    } @elseif length($functionWithArgument) == 4 {
+        @return call(nth($functionWithArgument, 1), $value, nth($functionWithArgument, 2), nth($functionWithArgument, 3), nth($functionWithArgument, 4));
+    }
+}
+
 @function applyTransformations($value, $transformations){
 
     @if length($transformations) > 0 {
@@ -23,15 +45,6 @@ $palettes: (
     @return $value;
 }
 
-@mixin applyFallback($param, $result) {
-    @if (type-of($result) == map) {
-        #{$param}: map-get($result, fallback);
-        #{$param}: map-get($result, base);
-    } @else {
-        #{$param}: $result;
-    }
-}
-
 @mixin get-colors($param, $type, $elem, $transformations: ()) {
     @each $palette in $palettes {
         @if map-get($palette, $type) {
@@ -40,14 +53,22 @@ $palettes: (
             @if $paletteName == default {
                 @if $value {
                     & {
-                        @include applyFallback($param, applyTransformations($value, $transformations));
+                        #{$param}: applyTransformations($value, $transformations);
                     }
                 }
             } @else {
-                :global(body.#{$paletteName}) & {
-                    @include applyFallback($param, applyTransformations($value, $transformations));
+
+                @if $value {
+                    :global(body.#{$paletteName}) & {
+                        #{$param}: applyTransformations($value, $transformations);
+                    }
+
+                    body.#{$paletteName} & {
+                        #{$param}: applyTransformations($value, $transformations);
+                    }
                 }
             }
         }
     }
 }
+

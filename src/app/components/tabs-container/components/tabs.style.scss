@@ -12,7 +12,19 @@
     @include get-colors(background-color, mainColors, primary);
 
     .item {
-        padding: 0;
+        //flex: 1 0 auto;
+        //border: 1px solid red;
+        //text-align: center;
+        //padding: 0;
+        //transition: flex 0.3s ease-in-out;
+        //
+        //&:hover {
+        //    flex-grow: 2;
+        //}
+
+        //&:nth-child(4) {
+        //    margin-left: auto;
+        //}
     }
 
     .button {

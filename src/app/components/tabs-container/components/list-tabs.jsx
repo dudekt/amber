@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classnames from 'classnames'
-import style from './../tabs.style.scss'
+import style from './tabs.style.scss'
 
 export default class Tabs extends React.Component {
     props: {

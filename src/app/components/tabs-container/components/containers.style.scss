@@ -1,5 +1,123 @@
 @import "variables";
 
+$imageSize: 256px;
+$max: 32;
+
 .box {
+    //padding: $padding;
+}
+
+/* Container 1 */
+
+.list-1 {
+    list-style: none;
     padding: $padding;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    //flex-direction: column;
+
+    .item-1 {
+        display: flex;
+        max-width: 2 * $imageSize;
+        transition: flex 0.3s ease-in-out;
+
+        //&:nth-child(odd) {
+        //    flex-direction: row-reverse;
+        //}
+        //
+        //&:hover {
+        //    flex-direction: row-reverse;
+        //}
+    }
+
+    .image-1 {
+        display: block;
+        flex: 0 0 0%;
+        height: $imageSize;
+        width: $imageSize;
+    }
+
+    .desc-1 {
+        padding: $padding;
+    }
+}
+
+/* Container 2 */
+
+.box-2 {
+    display: flex;
+    min-height: calc(100vh - (66px + 42px));
+    flex-direction: column;
+
+}
+
+.section {
+    flex: 1;
+    font-size: $padding / 2;
+    //font-size: $padding * 3;
+    overflow: auto;
+    padding: $padding;
+}
+
+.footer {
+    padding: $padding;
+    @include get-colors(color, mainColors, primary-font);
+    @include get-colors(background-color, mainColors, primary);
+}
+
+/* Container 3 */
+
+.list-3 {
+    list-style: none;
+    padding: $padding;
+    display: flex;
+    flex-direction: row;
+    //flex-wrap: wrap;
+    //justify-content: space-around;
+    //flex-direction: column;
+
+    .item-3 {
+        align-items: center;
+        display: flex;
+        max-width: 2 * $imageSize;
+        transition: flex 0.3s ease-in-out;
+        position: relative;
+
+
+        //&:nth-child(odd) {
+        //    flex-direction: row-reverse;
+        //}
+
+        @for $i from 1 through $max {
+            &:nth-of-type(#{$i}) {
+                &:after {
+                    content: "Blok nr #{$i}";
+                    display: block;
+                    left: 0;
+                    //opacity: 0.4;
+                    padding: $padding / 4;
+                    position: absolute;
+                    top: 0;
+                    @include get-colors(color, lightTheme, secondary-font);
+                    @include get-colors(background-color, mainColors, secondary, transparentize 0.4);
+                }
+            }
+        }
+
+        &:after {
+
+        }
+    }
+
+    .image-3 {
+        display: block;
+        flex: 0 0 0%;
+        height: $imageSize / 3;
+        width: $imageSize / 3;
+    }
+
+    .desc-3 {
+        padding: $padding;
+    }
 }

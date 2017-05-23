@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import style from './tabs.style.scss'
+import style from './presentation.style.scss'
 import Tabs from './components/list-tabs'
 import Container1 from './components/list-containers-1'
 import Container2 from './components/list-containers-2'
