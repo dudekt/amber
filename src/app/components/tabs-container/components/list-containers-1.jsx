@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import style from './../tabs.style.scss'
+import style from './containers.style.scss'
 
 export default class Container1 extends React.Component {
 

@@ -1,21 +1,35 @@
-$defaultColor: rgb(92, 107, 192);
-$mainBackground: rgb(223, 225, 225);
-$mainColor: red;
+$primaryColor: #3F51B5;
+$secondaryColor: #CDDC39;
 
 $palette: (
     name: default,
+
+    mainColors: (
+        primary: $primaryColor,
+        secondary: $secondaryColor,
+        primary-font: rgba(255, 255, 255, 1),
+        secondary-font: rgba(0, 0, 0, 1),
+    ),
 
     lightTheme: (
         light: #FFFFFF,
         grey-1: #FAFAFA,
         grey-2: #F5F5F5,
         dark: #E0E0E0,
+
+        primary-font: rgba(0, 0, 0, 0.8),
+        secondary-font: rgba(0, 0, 0, 0.5),
+        disable-font: rgba(0, 0, 0, 0.2),
     ),
     darkTheme: (
         light: #424242,
         grey-1: #303030,
         grey-2: #212121,
         dark: #000000,
+
+        primary-font: rgba(255, 255, 255, 0.8),
+        secondary-font: rgba(255, 255, 255, 0.5),
+        disable-font: rgba(255, 255, 255, 0.2),
     ),
 );
 

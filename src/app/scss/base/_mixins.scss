@@ -1,5 +1,11 @@
 @import "./palette";
 
+%after,
+%before {
+    content: " ";
+    display: block;
+}
+
 $palettes: (
     $palette,
 );

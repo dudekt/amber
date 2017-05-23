@@ -1,0 +1,7 @@
+@import "variables";
+
+.body {
+    padding: $padding;
+    @include get-colors(color, lightTheme, primary-font);
+    @include get-colors(background-color, lightTheme, dark);
+}
