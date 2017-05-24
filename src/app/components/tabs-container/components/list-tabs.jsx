@@ -58,6 +58,17 @@ export default class Tabs extends React.Component {
                             Item 4
                         </button>
                     </li>
+                    <li className={style['item']}>
+                        <button
+                            className={classnames(
+                                style['button'],
+                                {[style['active']]: this.props.activeTab === '5'}
+                            )}
+                            onClick={() => {this.props.onClick('5')}}
+                        >
+                            Item 5
+                        </button>
+                    </li>
                 </ul>
             </div>
         )

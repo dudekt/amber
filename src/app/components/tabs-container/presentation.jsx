@@ -7,6 +7,7 @@ import Container1 from './components/list-containers-1'
 import Container2 from './components/list-containers-2'
 import Container3 from './components/list-containers-3'
 import Container4 from './components/list-containers-4'
+import Container5 from './components/list-containers-5'
 
 export default class TabsPresentation extends React.Component {
     constructor() {
@@ -45,6 +46,10 @@ export default class TabsPresentation extends React.Component {
                 }
                 {this.state.activeTab === '4'
                     ? <Container4 />
+                    : null
+                }
+                {this.state.activeTab === '5'
+                    ? <Container5 />
                     : null
                 }
             </div>

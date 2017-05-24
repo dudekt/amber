@@ -11,7 +11,7 @@ export default class TopPresentation extends React.Component {
     render() {
         return (
             <div className={style['body']}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla reprehenderit dolorum, ipsam. Adipisci nesciunt, sed sapiente amet dignissimos? Maiores animi voluptatibus totam delectus voluptate eligendi laudantium itaque, atque reiciendis id?
+                Flexboxes
             </div>
         )
     }
