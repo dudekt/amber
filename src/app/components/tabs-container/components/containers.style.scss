@@ -1,7 +1,11 @@
-@import "variables";
+@import "utilities";
 
 $imageSize: 256px;
 $max: 32;
+
+.dupa {
+    background-color: deeppink;
+}
 
 .box {
     //padding: $padding;
@@ -23,10 +27,18 @@ $max: 32;
         transition: flex 0.3s ease-in-out;
         position: relative;
 
+        //@include tablet {
+        //    background-color: blue;
+        //}
+        //
+        //@include desktop {
+        //    background-color: red;
+        //}
+
         // &:nth-child(odd) {
         //    flex-direction: row-reverse;
         // }
-        
+
         // &:hover {
         //    flex-direction: row-reverse;
         // }
@@ -56,6 +68,7 @@ $max: 32;
 
     .desc-1 {
         padding: $padding;
+        @include checkLuminance(checkColor(mainColors, secondary));
     }
 }
 
@@ -65,7 +78,6 @@ $max: 32;
     display: flex;
     min-height: calc(100vh - (66px + 42px));
     flex-direction: column;
-
 }
 
 .section {

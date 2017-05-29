@@ -1,6 +1,9 @@
 const webpack = require('webpack')
 const path = require('path')
 
+console.log(path.resolve(__dirname, './src/app/elements/'));
+
+
 module.exports = {
     devtool: 'source-map',
     entry: {
@@ -25,12 +28,19 @@ module.exports = {
                 test: /\.s?css$/,
                 loaders: [
                     'style-loader',
-                    'css-loader?modules&importLoaders=1',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            importLoaders: 2,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        }
+                    },
                     'postcss-loader',
                     {
                         loader: 'sass-loader',
                         options: {
-                            includePaths: [path.resolve(__dirname, './src/app/scss')]
+                            includePaths: [path.resolve(__dirname, './src/app/scss/')]
                         }
                     }
                 ],
@@ -38,6 +48,9 @@ module.exports = {
         ],
     },
     resolve: {
+        alias: {
+            elements: path.resolve(__dirname, './src/app/elements/'),
+        },
         extensions: ['.js', '.jsx', '.json', '.scss'],
     },
 };
