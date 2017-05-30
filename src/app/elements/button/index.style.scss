@@ -3,6 +3,7 @@
 // variables
 $padding: 8px 16px;
 $minWidth: 64px;
+// $borderRadius: 4px;
 
 .body {
     border: 1px solid pink;
@@ -11,10 +12,24 @@ $minWidth: 64px;
     @include checkLuminance(red);
 
     .button {
+        border-radius: $borderRadius;
         border: 1px solid red;
         min-width: $minWidth;
         padding: $padding;
         text-align: center;
         text-transform: uppercase;
     }
+}
+
+.active {
+    background: lightblue;
+}
+
+.waiting {
+    background: yellow;
+}
+
+.inactive {
+    background: blue;
+    opacity: 0.1;
 }
