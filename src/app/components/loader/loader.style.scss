@@ -1,4 +1,4 @@
-@keyframes loader {
+@keyframes loader12 {
     0% {
         transform: rotate(0deg);
     }
@@ -24,20 +24,20 @@
 
     &:before {
         border: .4em solid transparent;
-        border-bottom-color: rgba(255, 255, 255, 0.8);
+        border-bottom-color: rgba(0, 0, 0, 0.8);
         width: 3em;
         height: 3em;
-        animation: loader 1.4s linear infinite;
+        animation: loader12 1.4s linear infinite;
     }
 
     &:after {
         border: .2em solid transparent;
-        border-bottom-color: rgba(255, 255, 255, 0.4);
+        border-bottom-color: rgba(0, 0, 0, 0.4);
         width: 2.8em;
         height: 2.8em;
         top: .3em;
         left: 0.3em;
-        animation: loader 2s linear reverse infinite;
+        animation: loader12 2s linear reverse infinite;
     }
 }
 

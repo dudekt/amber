@@ -2,14 +2,15 @@
 
 // variables
 $padding: 8px 16px;
+$marginBetweenButtons: 16px;
 $minWidth: 64px;
-// $borderRadius: 4px;
+//$borderRadius: 24px;
+
 
 .body {
     border: 1px solid pink;
     display: inline-flex;
     position: relative;
-    @include checkLuminance(red);
 
     .button {
         border-radius: $borderRadius;
@@ -19,6 +20,10 @@ $minWidth: 64px;
         text-align: center;
         text-transform: uppercase;
     }
+
+    & + & {
+        margin-left: $marginBetweenButtons;
+    }
 }
 
 .active {
@@ -26,7 +31,9 @@ $minWidth: 64px;
 }
 
 .waiting {
-    background: yellow;
+    color: transparent;
+    //position: relative;
+    @extend %loader;
 }
 
 .inactive {

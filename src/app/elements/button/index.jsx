@@ -7,23 +7,24 @@ import style from './index.style.scss'
 type Props = {
     className?: string,
     text: string,
-    state: 'active' | 'waiting' | 'inactive' ,
+    status: 'active' | 'waiting' | 'inactive' ,
 }
 
-const Button = (props: Props) => {
+export default ({ text, status = 'active', className, ...otherProps }: Props) => {
+
     return (
         <div className={style['body']}>
-            <div className={classnames(
-                style['button'],
-                { [style['active']]: props.state === 'active' },
-                { [style['waiting']]: props.state === 'waiting' },
-                { [style['inactive']]: props.state === 'inactive' },
-                props.className
+            <button
+                {...otherProps}
+                className={classnames(
+                    style['button'],
+                    { [style['active']]: status === 'active' },
+                    { [style['waiting']]: status === 'waiting' },
+                    { [style['inactive']]: status === 'inactive' },
+                    className
             )}>
-                {props.text}
-            </div>
+                {text}
+            </button>
         </div>
     )
-};
-
-export default Button
+}
