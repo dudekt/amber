@@ -6,13 +6,13 @@ import style from './containers.style.scss'
 
 export default class Container1 extends React.Component {
     state: {
-        status: ?string,
-    }
+        status: 'normal' | 'send',
+    };
 
     constructor() {
         super();
         this.state = {
-            status: null,
+            status: 'normal',
         }
     }
 
@@ -22,13 +22,23 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Save'
-                    onClick={() => this.setState({ status: 'waiting' })}
-                    status={this.state.status}
+                    onClick={() => this.setState({ status: 'send' })}
+                    status={this.state.status === 'normal'
+                        ? 'active'
+                        : (this.state.status === 'send'
+                            ? 'waiting'
+                            : 'inactive'
+                        )
+                    }
                 />
                 <Button
                     className={style['custom']}
                     text='Cancel'
-                    // onClick={() => this.setState({ status: 'inactive' })}
+                    onClick={() => this.setState({ status: 'normal' })}
+                    status={this.state.status === 'normal'
+                        ? 'active'
+                        : 'inactive'
+                    }
                 />
             </div>
         )

@@ -10,12 +10,17 @@ type Props = {
     status: 'active' | 'waiting' | 'inactive' ,
 }
 
-export default ({ text, status = 'active', className, ...otherProps }: Props) => {
+export default ({ text, status = 'active', className, onClick, ...otherProps }: Props) => {
 
     return (
         <div className={style['body']}>
             <button
                 {...otherProps}
+                onClick={(e) => {
+                    if (status === 'active') {
+                        onClick(e)
+                    }
+                }}
                 className={classnames(
                     style['button'],
                     { [style['active']]: status === 'active' },
