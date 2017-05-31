@@ -33,7 +33,7 @@ $minWidth: 64px;
 .waiting {
     color: transparent;
     //position: relative;
-    @extend %loader;
+    @include loader($color: blue, $size: 12px);
 }
 
 .inactive {
