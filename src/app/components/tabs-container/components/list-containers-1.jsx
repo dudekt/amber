@@ -21,23 +21,25 @@ export default class Container1 extends React.Component {
             <div className={style['container']}>
                 <Button
                     className={style['custom']}
-                    text='Save'
+                    text='Hakuna matata'
+                    type='action'
                     onClick={() => this.setState({ status: 'send' })}
                     status={this.state.status === 'normal'
-                        ? 'active'
+                        ? 'action'
                         : (this.state.status === 'send'
-                            ? 'waiting'
-                            : 'inactive'
+                            ? 'busy'
+                            : 'disable'
                         )
                     }
                 />
                 <Button
                     className={style['custom']}
                     text='Cancel'
+                    type='normal'
                     onClick={() => this.setState({ status: 'normal' })}
                     status={this.state.status === 'normal'
-                        ? 'active'
-                        : 'inactive'
+                        ? 'normal'
+                        : 'disable'
                     }
                 />
             </div>

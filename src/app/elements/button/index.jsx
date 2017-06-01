@@ -7,25 +7,26 @@ import style from './index.style.scss'
 type Props = {
     className?: string,
     text: string,
-    status: 'active' | 'waiting' | 'inactive' ,
+    type: string,
+    status: 'action' | 'normal' | 'busy' | 'disable' ,
 }
 
-export default ({ text, status = 'active', className, onClick, ...otherProps }: Props) => {
+export default ({ text, status = 'normal', type, className, onClick, ...otherProps }: Props) => {
 
     return (
         <div className={style['body']}>
             <button
                 {...otherProps}
                 onClick={(e) => {
-                    if (status === 'active') {
+                    if (status === 'action') {
                         onClick(e)
                     }
                 }}
                 className={classnames(
                     style['button'],
-                    { [style['active']]: status === 'active' },
-                    { [style['waiting']]: status === 'waiting' },
-                    { [style['inactive']]: status === 'inactive' },
+                    style[type],
+                    { [style['busy']]: status === 'busy' },
+                    { [style['disable']]: status === 'disable' },
                     className
             )}>
                 {text}

@@ -4,21 +4,54 @@
 $padding: 8px 16px;
 $marginBetweenButtons: 16px;
 $minWidth: 64px;
-//$borderRadius: 24px;
 
+
+// mixins
+@mixin buttonColor($color) {
+    background-color: $color;
+    color: findColorInvert($color);
+
+    // todo: czy potrzebny do tego jakiś mixin? jak to fajnie zrobić?
+    transition: background-color .2s ease-out;
+
+    &:hover {
+        background-color: lighten($color, 4%);
+    }
+}
 
 .body {
-    border: 1px solid pink;
     display: inline-flex;
     position: relative;
 
     .button {
+        border: none;
         border-radius: $borderRadius;
-        border: 1px solid red;
+        cursor: pointer;
         min-width: $minWidth;
         padding: $padding;
         text-align: center;
         text-transform: uppercase;
+
+        &.action {
+            @include buttonColor(checkColor(mainColors, primary));
+        }
+
+        &.normal {
+            @include buttonColor(checkColor(lightTheme, dark));
+        }
+
+        &.busy {
+            @extend .action;
+            color: transparent;
+            cursor: default;
+            @include loader($color: checkColor(mainColors, primary-font), $size: 16px);
+        }
+
+        &.disable {
+            @extend .normal;
+            cursor: default;
+            opacity: 0.6;
+        }
     }
 
     & + & {
@@ -26,17 +59,4 @@ $minWidth: 64px;
     }
 }
 
-.active {
-    background: lightblue;
-}
 
-.waiting {
-    color: transparent;
-    //position: relative;
-    @include loader($color: blue, $size: 12px);
-}
-
-.inactive {
-    background: blue;
-    opacity: 0.1;
-}
