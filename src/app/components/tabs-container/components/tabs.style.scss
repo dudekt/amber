@@ -63,7 +63,6 @@
         // @include get-colors(background-color, mainColors, primary);
 
         &:after {
-            @extend %after;
             bottom: 0;
             left: 0;
             position: absolute;

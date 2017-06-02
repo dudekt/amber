@@ -1,21 +1,41 @@
 @import "utilities";
 
 // variables
+$fontSize: 12px;
 $padding: 8px 16px;
-$marginBetweenButtons: 16px;
+$paddingSmall: 6px 16px;
+$marginBetweenButtons: 8px;
 $minWidth: 64px;
 
 
 // mixins
-@mixin buttonColor($color) {
+@mixin buttonColor($color, $colorAlt: null) {
+    $borderHeight: 2px;
+    $timing: 0.4s;
+    $timingFunction: ease-out;
+
     background-color: $color;
     color: findColorInvert($color);
+    transition: background-color $timing $timingFunction;
 
-    // todo: czy potrzebny do tego jakiś mixin? jak to fajnie zrobić?
-    transition: background-color .2s ease-out;
+    &:after {
+        background-color: transparent;
+        content: "";
+        display: block;
+        height: $borderHeight;
+        transform: scaleX(0);
+        transition: transform $timing $timingFunction, background-color $timing $timingFunction;
+        width: 100%;
+        @include position(absolute, $bottom: 0, $left: 0);
+    }
 
     &:hover {
-        background-color: lighten($color, 4%);
+        background-color: lighten($color, 8%);
+
+        &:after {
+            background-color: $colorAlt;
+            transform: scaleX(1);
+        }
     }
 }
 
@@ -27,30 +47,42 @@ $minWidth: 64px;
         border: none;
         border-radius: $borderRadius;
         cursor: pointer;
+        font-size: $fontSize;
         min-width: $minWidth;
         padding: $padding;
+        position: relative;
         text-align: center;
         text-transform: uppercase;
+        @include buttonColor(checkColor(lightTheme, dark));
 
-        &.action {
-            @include buttonColor(checkColor(mainColors, primary));
+        &.small {
+            font-size: $fontSize / 1.2;
+            padding: $paddingSmall;
+
+            &.busy {
+                @include loader($color: checkColor(mainColors, primary-font), $size: 8px);
+            }
         }
 
-        &.normal {
-            @include buttonColor(checkColor(lightTheme, dark));
+        &.primary {
+            @include buttonColor(checkColor(mainColors, primary), checkColor(mainColors, primaryAlt));
+        }
+
+        &.secondary {
+            @include buttonColor(checkColor(mainColors, secondary), checkColor(mainColors, secondaryAlt));
         }
 
         &.busy {
-            @extend .action;
             color: transparent;
             cursor: default;
+            pointer-events: none;
             @include loader($color: checkColor(mainColors, primary-font), $size: 16px);
         }
 
         &.disable {
-            @extend .normal;
             cursor: default;
             opacity: 0.6;
+            pointer-events: none;
         }
     }
 

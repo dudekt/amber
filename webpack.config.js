@@ -26,6 +26,7 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
+                exclude: /node_modules/,
                 loaders: [
                     'style-loader',
                     {
@@ -45,10 +46,23 @@ module.exports = {
                     }
                 ],
             },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                loaders: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+
+                    },
+                    'postcss-loader',
+                ],
+            },
         ],
     },
     resolve: {
         alias: {
+            components: path.resolve(__dirname, './src/app/components/'),
             elements: path.resolve(__dirname, './src/app/elements/'),
         },
         extensions: ['.js', '.jsx', '.json', '.scss'],

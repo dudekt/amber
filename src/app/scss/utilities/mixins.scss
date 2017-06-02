@@ -1,9 +1,17 @@
 @import "palette";
 
-%after,
-%before {
-    content: " ";
-    display: block;
+@mixin position(
+    $position,
+    $bottom: null,
+    $left: null,
+    $right: null,
+    $top: null
+) {
+    position: $position;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    top: $top;
 }
 
 @mixin checkLuminance($color) {

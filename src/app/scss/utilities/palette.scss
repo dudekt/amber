@@ -1,10 +1,14 @@
-$primaryColor: #00CC6A;
-$secondaryColor: #CDDC39;
+$primaryColor: #2ECC71;
+$primaryAltColor: #27AE60;
+$secondaryColor: #9B59B6;
+$secondaryAltColor: #8E44AD;
 
 $palette: (
     mainColors: (
         primary: $primaryColor,
+        primaryAlt: $primaryAltColor,
         secondary: $secondaryColor,
+        secondaryAlt: $secondaryAltColor,
         primary-font: rgba(255, 255, 255, 1),
         secondary-font: rgba(0, 0, 0, 1),
     ),

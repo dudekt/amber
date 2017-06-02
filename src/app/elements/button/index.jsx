@@ -6,12 +6,14 @@ import style from './index.style.scss'
 
 type Props = {
     className?: string,
-    text: string,
-    type: string,
+    onClick: (e: MouseEvent) => void,
+    size: 'default' | 'small',
     status: 'action' | 'normal' | 'busy' | 'disable' ,
+    text: string,
+    type: 'primary' | 'secondary' | 'default',
 }
 
-export default ({ text, status = 'normal', type, className, onClick, ...otherProps }: Props) => {
+export default ({ text, status = 'normal', type = 'default', size = 'default', className, onClick, ...otherProps }: Props) => {
 
     return (
         <div className={style['body']}>
@@ -25,10 +27,12 @@ export default ({ text, status = 'normal', type, className, onClick, ...otherPro
                 className={classnames(
                     style['button'],
                     style[type],
+                    style[size],
                     { [style['busy']]: status === 'busy' },
                     { [style['disable']]: status === 'disable' },
                     className
-            )}>
+                )}
+            >
                 {text}
             </button>
         </div>
