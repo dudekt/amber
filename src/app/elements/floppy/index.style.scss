@@ -1,23 +1,31 @@
 @import "utilities";
 
 // variables
-$size: 512px;
+$size: 256px;
 $background: checkColor(floppy, background);
-$borderRadius: ($size * .64) / 16;
+$borderRadius: ($size * 0.32) / 16;
 $cornerSize: $size / 12;
 
 
 // mixins
 
 
+@keyframes mapping{
+    0% { transform: scale(1) }
+    50% { transform: scale(1.1) }
+    100% { transform: scale(1) }
+}
+
 .body {
     display: flex;
+    margin: $padding;
     position: relative;
 
     .floppy {
         background: $background;
         background: linear-gradient(-135deg, transparent $cornerSize, $background 0);
         border-radius: $borderRadius;
+        box-shadow: 0 ($size / 48) ($size / 32) (-$size / 48) black;
         height: $size;
         position: relative;
         width: $size;
@@ -31,10 +39,11 @@ $cornerSize: $size / 12;
         border-bottom-left-radius: $height * 0.04;
         border-bottom-right-radius: $height * 0.04;
         height: $height;
-        margin: auto;
         left: $width * 0.2;
+        margin: auto;
         position: absolute;
         width: $width;
+        z-index: 100;
     }
 
     .shutter {
@@ -49,19 +58,64 @@ $cornerSize: $size / 12;
         display: flex;
         height: $height;
         position: absolute;
-        top: 0;
         right: 0;
+        top: 0;
         width: $width;
 
         &:after {
             background: $background;
             background: linear-gradient($background, lighten($background, 8%));
-            box-shadow: ($size / 128) ($size / 128) darken($background, 16%) inset;
+            box-shadow: ($size / 128) 0 ($size / 128) darken($background, 16%) inset;
             content: "";
             display: block;
+            height: $height * 0.8;
             margin: auto auto auto $width * 0.6;
-            height: $height * .8;
-            width: $width * .25;
+            width: $width * 0.25;
+        }
+    }
+
+    .label-container {
+        $height: $size * 0.55;
+        $width: $size * 0.74;
+
+        background: lighten($background, 8%);
+        border-top-left-radius: $height * 0.04;
+        border-top-right-radius: $height * 0.04;
+        bottom: 0;
+        box-shadow: 0 ($size / 128) ($size / 128) darken($background, 16%) inset;
+        height: $height;
+        left: $size * 0.13;
+        position: absolute;
+        width: $width;
+    }
+
+    .label {
+        $labelColor: #76608A;
+        $labelSize: 96%;
+
+        background: linear-gradient(white $labelSize, $labelColor) 0 0 / 20% repeat, white;
+        border-top-left-radius: $labelSize * 0.04;
+        border-top-right-radius: $labelSize * 0.04;
+        bottom: 0;
+        height: $labelSize;
+        left: 0;
+        margin: auto;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        width: $labelSize;
+
+        &:after {
+            background-color: $labelColor;
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: $labelSize * 0.11;
+            width: 100%;
         }
     }
 }

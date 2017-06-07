@@ -14,9 +14,10 @@ export default ({}: Props) => {
         <div className={style['body']}>
             <div className={style['floppy']}>
                 <div className={style['shutter-container']}>
-                    <div className={style['shutter']}>
-                        
-                    </div>
+                    <div className={style['shutter']} />
+                </div>
+                <div className={style['label-container']}>
+                    <div className={style['label']} />
                 </div>
             </div>
         </div>
