@@ -43,7 +43,6 @@ $cornerSize: $size / 12;
         margin: auto;
         position: absolute;
         width: $width;
-        z-index: 100;
     }
 
     .shutter {
@@ -107,14 +106,14 @@ $cornerSize: $size / 12;
 
         &:after {
             background-color: $labelColor;
+            bottom: 0;
             content: "";
             display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
             height: $labelSize * 0.11;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
             width: 100%;
         }
     }
