@@ -56,7 +56,6 @@ $max: 32;
                     padding: $padding / 4;
                     position: absolute;
                     top: 0;
-                    @include get-colors(color, lightTheme, secondary-font);
                     @include get-colors(background-color, mainColors, secondary, transparentize 0.4);
                 }
             }
@@ -130,7 +129,6 @@ $max: 32;
                     padding: $padding / 4;
                     position: absolute;
                     top: 0;
-                    @include get-colors(color, lightTheme, secondary-font);
                     @include get-colors(background-color, mainColors, secondary, transparentize 0.4);
                 }
             }
@@ -163,7 +161,6 @@ $max: 32;
     border-bottom-style: solid;
     padding: $padding / 2;
     max-width: 50%;
-    @include get-colors(color, lightTheme, primary-font);
     @include get-colors(border-bottom-color, mainColors, primary);
 }
 

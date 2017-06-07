@@ -10,10 +10,11 @@ type Props = {
     size: 'default' | 'small',
     status: 'action' | 'normal' | 'busy' | 'disable' ,
     text: string,
-    type: 'primary' | 'secondary' | 'default',
+    disabled: boolean,
+    color: 'primary' | 'secondary' | 'default',
 }
 
-export default ({ text, status = 'normal', type = 'default', size = 'default', className, onClick, ...otherProps }: Props) => {
+export default ({ text, status = 'normal', color = 'default', size = 'default', className, onClick, ...otherProps }: Props) => {
 
     return (
         <div className={style['body']}>
@@ -26,7 +27,7 @@ export default ({ text, status = 'normal', type = 'default', size = 'default', c
                 }}
                 className={classnames(
                     style['button'],
-                    style[type],
+                    style[color],
                     style[size],
                     { [style['busy']]: status === 'busy' },
                     { [style['disable']]: status === 'disable' },

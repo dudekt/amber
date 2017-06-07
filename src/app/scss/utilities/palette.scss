@@ -1,7 +1,17 @@
-$primaryColor: #2ECC71;
-$primaryAltColor: #27AE60;
-$secondaryColor: #9B59B6;
-$secondaryAltColor: #8E44AD;
+$primaryColor: #D80073;
+$primaryAltColor: darken($primaryColor, 8%);
+
+// $primaryColor: #2ECC71;
+// $primaryAltColor: #27AE60;
+
+$secondaryColor: #F472D0;
+$secondaryAltColor: darken($secondaryColor, 8%);
+
+// $secondaryColor: #9B59B6;
+// $secondaryAltColor: #8E44AD;
+
+$defaultColor: #647687;
+$defaultAltColor: darken($defaultColor, 8%);
 
 $palette: (
     mainColors: (
@@ -9,29 +19,20 @@ $palette: (
         primaryAlt: $primaryAltColor,
         secondary: $secondaryColor,
         secondaryAlt: $secondaryAltColor,
+        default: $defaultColor,
+        defaultAlt: $defaultAltColor,
+
         primary-font: rgba(255, 255, 255, 1),
         secondary-font: rgba(0, 0, 0, 1),
     ),
 
-    lightTheme: (
-        light: #FFFFFF,
-        grey-1: #FAFAFA,
-        grey-2: #F5F5F5,
-        dark: #E0E0E0,
-
-        primary-font: rgba(0, 0, 0, 0.8),
-        secondary-font: rgba(0, 0, 0, 0.5),
-        disable-font: rgba(0, 0, 0, 0.2),
+    floppy: (
+        background: #0050EF,
     ),
-    darkTheme: (
-        light: #424242,
-        grey-1: #303030,
-        grey-2: #212121,
-        dark: #000000,
 
-        primary-font: rgba(255, 255, 255, 0.8),
-        secondary-font: rgba(255, 255, 255, 0.5),
-        disable-font: rgba(255, 255, 255, 0.2),
+    defaultTheme: (
+        default: #ECF0F1,
+        defaultAlt: #7f8C8D,
     ),
 );
 

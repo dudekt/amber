@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Button from 'elements/button'
+import Floppy from 'elements/floppy'
 
 import Navigation from 'components/navigation/'
 import style from './containers.style.scss'
@@ -24,10 +25,12 @@ export default class Container1 extends React.Component {
 
                 <Navigation />
 
+                <Floppy />
+
                 <Button
                     className={style['custom']}
                     text='Hakuna matata'
-                    type='primary'
+                    color='primary'
                     onClick={() => this.setState({ status: 'action' })}
                     status={this.state.status === 'normal'
                         ? 'action'
@@ -40,7 +43,7 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Edit'
-                    type='secondary'
+                    color='secondary'
                     onClick={() => this.setState({ status: 'action' })}
                     status={this.state.status === 'normal'
                         ? 'normal'
@@ -50,7 +53,6 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Cancel'
-                    type='normal'
                     onClick={() => this.setState({ status: 'normal' })}
                     status={this.state.status === 'normal'
                         ? 'normal'
@@ -61,7 +63,7 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Hakuna matata'
-                    type='primary'
+                    color='primary'
                     onClick={() => this.setState({ status: 'action' })}
                     size={'small'}
                     status={this.state.status === 'normal'
@@ -75,9 +77,10 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Edit'
-                    type='secondary'
+                    color='secondary'
                     onClick={() => this.setState({ status: 'action' })}
                     size={'small'}
+                    disabled={true}
                     status={this.state.status === 'normal'
                         ? 'normal'
                         : 'disable'
@@ -86,7 +89,6 @@ export default class Container1 extends React.Component {
                 <Button
                     className={style['custom']}
                     text='Cancel'
-                    type='normal'
                     onClick={() => this.setState({ status: 'normal' })}
                     size={'small'}
                     status={this.state.status === 'normal'

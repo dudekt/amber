@@ -1,0 +1,70 @@
+@import "utilities";
+
+// variables
+$size: 512px;
+$background: checkColor(floppy, background);
+$borderRadius: ($size * .64) / 16;
+$cornerSize: $size / 12;
+
+
+// mixins
+
+
+.body {
+    display: flex;
+    position: relative;
+
+    .floppy {
+        background: $background;
+        background: linear-gradient(-135deg, transparent $cornerSize, $background 0);
+        border-radius: $borderRadius;
+        height: $size;
+        position: relative;
+        width: $size;
+    }
+
+    .shutter-container {
+        $height: $size * 0.33;
+        $width: $size * 0.65;
+
+        background: lighten($background, 8%);
+        border-bottom-left-radius: $height * 0.04;
+        border-bottom-right-radius: $height * 0.04;
+        height: $height;
+        margin: auto;
+        left: $width * 0.2;
+        position: absolute;
+        width: $width;
+    }
+
+    .shutter {
+        $shutterBackground: #FFFFFF;
+        $height: $size * 0.325;
+        $width: $size * 0.5;
+
+        background: $shutterBackground;
+        background: radial-gradient($shutterBackground, darken($shutterBackground, 8%));
+        border-bottom-left-radius: $height * 0.04;
+        border-bottom-right-radius: $height * 0.04;
+        display: flex;
+        height: $height;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $width;
+
+        &:after {
+            background: $background;
+            background: linear-gradient($background, lighten($background, 8%));
+            box-shadow: ($size / 128) ($size / 128) darken($background, 16%) inset;
+            content: "";
+            display: block;
+            margin: auto auto auto $width * 0.6;
+            height: $height * .8;
+            width: $width * .25;
+        }
+    }
+}
+
+
+

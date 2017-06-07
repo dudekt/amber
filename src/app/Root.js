@@ -8,9 +8,7 @@ import Loader2 from './components/loader2/'
 
 const Root = () => (
     <div>
-        <Top />
-        {/*<Loader/>*/}
-        {/*<Loader2/>*/}
+        {/*<Top />*/}
         <TabsContainer />
     </div>
 );
