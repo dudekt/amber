@@ -6,16 +6,6 @@ $background: checkColor(floppy, background);
 $borderRadius: ($size * 0.32) / 16;
 $cornerSize: $size / 12;
 
-
-// mixins
-
-
-@keyframes mapping{
-    0% { transform: scale(1) }
-    50% { transform: scale(1.1) }
-    100% { transform: scale(1) }
-}
-
 .body {
     display: flex;
     margin: $padding;

@@ -23,7 +23,7 @@ export default class Container1 extends React.Component {
         return (
             <div className={style['container']}>
 
-                <Navigation />
+                {/*<Navigation />*/}
 
                 <Floppy />
 
