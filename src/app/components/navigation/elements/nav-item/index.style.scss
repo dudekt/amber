@@ -1,0 +1,43 @@
+@import "../../variables";
+
+//variables
+$padding: 12px 8px;
+
+// mixins
+@mixin itemColor($color, $colorAlt: null) {
+    $borderHeight: 2px;
+    $timing: 0.4s;
+    $timingFunction: ease-out;
+
+    color: findColorInvert($barColor);
+    display: flex;
+    padding: $padding;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color $timing $timingFunction;
+
+    &:after {
+        background-color: transparent;
+        content: "";
+        display: block;
+        height: $borderHeight;
+        transform: scaleX(0);
+        transition: transform $timing $timingFunction, background-color $timing $timingFunction;
+        width: 100%;
+        @include position(absolute, $bottom: 0, $left: 0);
+    }
+
+    &:hover {
+        background-color: lighten($barColor, 8%);
+
+        &:after {
+            background-color: $defaultAltColor;
+            transform: scaleX(1);
+        }
+    }
+}
+
+.item {
+    @include itemColor(red, blue);
+}

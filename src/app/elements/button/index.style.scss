@@ -29,14 +29,14 @@ $minWidth: 64px;
         @include position(absolute, $bottom: 0, $left: 0);
     }
 
-    &:hover, {
+    &:hover {
         background-color: lighten($color, 8%);
 
         &:after {
             background-color: $colorAlt;
             transform: scaleX(1);
         }
-        
+
         &.disable,
         &:disabled {
             background-color: $color;

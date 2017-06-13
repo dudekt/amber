@@ -1,6 +1,11 @@
+//variables
+$maxWidth: 1024px;
+
 body {
     // background-color: #7986CB;
-    margin: 0;
+    margin: 0 auto;
+    //max-width: $maxWidth;
+    //width: 100%;
 }
 
 p {
@@ -9,4 +14,10 @@ p {
 
 button {
     outline: none;
+}
+
+:global(.fix-width) {
+    margin: 0 auto;
+    max-width: $maxWidth;
+    width: 100%;
 }

@@ -4,7 +4,7 @@ import React from 'react'
 import Button from 'elements/button'
 import Floppy from 'elements/floppy'
 
-import Navigation from 'components/navigation/'
+
 import style from './containers.style.scss'
 
 export default class Container1 extends React.Component {
@@ -23,9 +23,7 @@ export default class Container1 extends React.Component {
         return (
             <div className={style['container']}>
 
-                {/*<Navigation />*/}
-
-                <Floppy />
+                {/*<Floppy />*/}
 
                 <Button
                     className={style['custom']}

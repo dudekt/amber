@@ -3,8 +3,6 @@
 import React from 'react';
 import style from './presentation.style.scss'
 import Tabs from './components/list-tabs'
-import Navbar from 'elements/nav-bar/'
-
 import Container1 from './components/list-containers-1'
 import Container2 from './components/list-containers-2'
 import Container3 from './components/list-containers-3'
@@ -33,9 +31,6 @@ export default class TabsPresentation extends React.Component {
     render() {
         return (
             <div className={style['body']}>
-                <Navbar>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptate quam minima aliquid dolorum pariatur natus iure esse optio voluptatem impedit ut incidunt perspiciatis, amet ex quia tempore distinctio eaque!
-                </Navbar>
                 <Tabs onClick={this.setActiveTab} activeTab={this.state.activeTab} />
                 {this.state.activeTab === '1'
                     ? <Container1 />
