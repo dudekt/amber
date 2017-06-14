@@ -47,6 +47,28 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                loaders: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        query: {
+                            progressive: true,
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 4
+                            },
+                            optipng: {
+                                optimizationLevel: 7,
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            }
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.css$/,
                 include: /node_modules/,
                 loaders: [
