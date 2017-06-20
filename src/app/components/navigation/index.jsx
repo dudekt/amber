@@ -17,7 +17,7 @@ export default ({  }: Props) => {
             <NavBar
                 fixWidth={true}
             >
-                {/*<NavDropdown />*/}
+                <NavDropdown />
                 <NavItem text={'Item 1'} />
                 <NavItem text={'Item 2'} />
                 <NavItem text={'Item 3'} />

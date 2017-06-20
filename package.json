@@ -18,8 +18,10 @@
     "classnames": "^2.2.5",
     "normalize.css": "^7.0.0",
     "react": "^15.5.3",
+    "react-dd-menu": "^2.0.1",
     "react-dom": "^15.5.3",
-    "react-select": "^1.0.0-rc.5"
+    "react-select": "^1.0.0-rc.5",
+    "react-transition-group": "^1.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

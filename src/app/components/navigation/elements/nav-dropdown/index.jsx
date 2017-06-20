@@ -3,32 +3,40 @@
 import React from 'react'
 import classnames from 'classnames'
 import style from './index.style.scss'
-import Select from 'react-select';
-import 'react-select/dist/react-select.css'
+import DropdownMenu from 'react-dd-menu'
 
-type Props = {
+export default class DropdownItem extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            isMenuOpen: false,
+        }
+    }
 
-}
+    toggle = () => {
+        this.setState({ isMenuOpen: !this.state.isMenuOpen })
+    };
 
-let options = [
-    { value: 'one', label: 'One' },
-    { value: 'two', label: 'Two' }
-];
+    close = () => {
+        this.setState({ isMenuOpen: false })
+    };
 
-function logChange(val) {
-    console.log("Selected: " + val);
-}
+    click = () => {
+        console.log('You clicked an item')
+    };
 
-export default ({  }: Props) => {
-
-    return (
-        <Select
-            className={style['select-custom']}
-            clearable={false}
-            name={'form-field-name'}
-            value={''}
-            options={options}
-            onChange={logChange}
-        />
-    )
+    render() {
+        let menuOptions = {
+            isOpen: this.state.isMenuOpen,
+            close: this.close.bind(this),
+            toggle: <button type="button" onClick={this.toggle.bind(this)}>Click me!</button>,
+            align: 'right',
+        }
+        return (
+            <DropdownMenu {...menuOptions}>
+                <li><a href="#">Example 1</a></li>
+                <li><button type="button" onClick={this.click.bind(this)}>Example 2</button></li>
+            </DropdownMenu>
+        )
+    }
 }
