@@ -3,13 +3,15 @@
 import React from 'react'
 import classnames from 'classnames'
 import style from './index.style.scss'
+import Arrow from './arrow.react'
 
 type Props = {
     className?: string,
     text: string,
+    canDropDown?: boolean,
 }
 
-export default ({ text, className, ...otherProps }: Props) => {
+export default ({ text, className, canDropDown, ...otherProps }: Props) => {
 
     return (
         <li
@@ -19,9 +21,16 @@ export default ({ text, className, ...otherProps }: Props) => {
             )}
         >
             <a
-                className={style['item']}
+                className={classnames(
+                    style['item'],
+                    { [style['dropdown']]: canDropDown },
+                )}
                 href="#"
             >
+                {canDropDown
+                    ? <Arrow className={style['arrow']} />
+                    : null
+                }
                 {text}
             </a>
         </li>

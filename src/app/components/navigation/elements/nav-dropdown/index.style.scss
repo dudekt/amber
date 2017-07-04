@@ -1,3 +1,24 @@
-.select-custom {
-    background-color: red;
+@import "../../variables";
+
+//variables
+$padding: 34px 8px;
+$iconSize: 16px;
+
+.menu {
+    position: relative;
+
+    :global {
+        .dropdown-item {
+            background-color: $barColor;
+        }
+
+        .dd-menu-items {
+            @include position(absolute, $top: 100%, $left: 0);
+        }
+
+        .dd-items-center {
+            list-style: none;
+            padding: 0;
+        }
+    }
 }

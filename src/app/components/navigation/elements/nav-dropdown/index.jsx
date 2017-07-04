@@ -4,8 +4,13 @@ import React from 'react'
 import classnames from 'classnames'
 import style from './index.style.scss'
 import DropdownMenu from 'react-dd-menu'
+import NavItem from './../nav-item/'
 
-export default class DropdownItem extends React.Component {
+type Props = {
+    title: string,
+}
+
+export default class NavDropdown extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -29,13 +34,11 @@ export default class DropdownItem extends React.Component {
         let menuOptions = {
             isOpen: this.state.isMenuOpen,
             close: this.close.bind(this),
-            toggle: <button type="button" onClick={this.toggle.bind(this)}>Click me!</button>,
-            align: 'right',
+            toggle: <NavItem onClick={this.toggle.bind(this)} {...this.props} text={this.props.title} />,
         }
         return (
-            <DropdownMenu {...menuOptions}>
-                <li><a href="#">Example 1</a></li>
-                <li><button type="button" onClick={this.click.bind(this)}>Example 2</button></li>
+            <DropdownMenu className={style['menu']} {...menuOptions}>
+                {this.props.children}
             </DropdownMenu>
         )
     }

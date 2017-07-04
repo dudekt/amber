@@ -3,7 +3,6 @@ const path = require('path')
 
 console.log(path.resolve(__dirname, './src/app/elements/'));
 
-
 module.exports = {
     devtool: 'source-map',
     entry: {

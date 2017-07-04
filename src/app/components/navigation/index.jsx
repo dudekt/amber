@@ -17,7 +17,16 @@ export default ({  }: Props) => {
             <NavBar
                 fixWidth={true}
             >
-                <NavDropdown />
+                <NavDropdown
+                    title='menu'
+                    canDropDown
+                >
+                    <NavItem className={'dropdown-item'} text={'Itemitem 1'} />
+                    <NavItem className={'dropdown-item'} text={'Item 2'} />
+                    <NavItem className={'dropdown-item'} text={'Item 3'} />
+                    <NavItem className={'dropdown-item'} text={'Item 4'} />
+                    <NavItem className={'dropdown-item'} text={'Item 5'} />
+                </NavDropdown>
                 <NavItem text={'Item 1'} />
                 <NavItem text={'Item 2'} />
                 <NavItem text={'Item 3'} />

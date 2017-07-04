@@ -2,9 +2,11 @@
 
 //variables
 $padding: 12px 8px;
+$paddingInner: 12px 16px;
+$iconSize: 16px;
 
 // mixins
-@mixin itemColor($color, $colorAlt: null) {
+@mixin itemColor {
     $borderHeight: 2px;
     $timing: 0.4s;
     $timingFunction: ease-out;
@@ -39,5 +41,24 @@ $padding: 12px 8px;
 }
 
 .item {
-    @include itemColor(red, blue);
+    @include itemColor;
+}
+
+.dropdown {
+
+    .arrow {
+        align-self: center;
+        display: flex;
+        height: $iconSize;
+        padding-right: 4px;
+        width: $iconSize;
+    }
+}
+
+:global(.dropdown-item) {
+    display: flex;
+
+    .item {
+        min-width: 120px;
+    }
 }
