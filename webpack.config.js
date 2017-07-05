@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 console.log(path.resolve(__dirname, './src/app/elements/'));
 
@@ -81,6 +82,9 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new UglifyJSPlugin()
+    ],
     resolve: {
         alias: {
             components: path.resolve(__dirname, './src/app/components/'),
